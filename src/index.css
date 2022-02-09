@@ -1,13 +1,121 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: OCR A Std, monospace;
+  font-weight: bold;
+  background: #1030AD;
+  color: #FFCC00;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#header {
+  text-align: center;
+  font-size: 22px;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+.column h3 {
+  padding-left: 40px;
+}
+
+.container {
+  padding: 1rem;
+  height: auto;
+  opacity: 0.8;
+  text-align: center;
+  padding: 1rem;
+}
+
+.container select {
+  border-radius: 5px;
+  height: auto;
+  width: 8rem;
+  margin: 1rem 1rem;
+}
+
+#submit-button {
+  display: inline-block;
+  position: relative;
+  background-color: #ffffff;
+  color: #1030AD;
+  border-radius: 5px;
+  height: 2rem;
+  width: max-content;
+  justify-self: center;
+}
+
+#submit-button:hover {
+  background-color: rgba(255, 255, 255, 0.74);
+  color: #ff000d;
+}
+
+.lists {
+  border: rgb(0, 0, 0) solid 1px;
+  background: #5a6cb8;
+  width: auto;
+  padding: 5px;
+  font-size: 16px;
+  height: auto;
+  margin: 1rem;
+  box-shadow: 3px 4px #3b3b3b;
+  list-style: none;
+}
+
+.lists button {
+  float: center;
+  background-color: #ffffff;
+  color: #1030AD;
+  border-radius: 5px;
+}
+
+.greyed-lists {
+  border: rgb(0, 0, 0) solid 1px;
+  background: #636363;
+  color: #ffffff;
+  width: auto;
+  padding: 5px;
+  font-size: 16px;
+  height: auto;
+  margin: 1rem;
+  box-shadow: 3px 4px #3b3b3b;
+  list-style: none;
+}
+
+.rented-lists {
+  text-align: center;
+  border: rgb(0, 0, 0) solid 1px;
+  background: #5a6cb8;
+  width: 25%;
+  padding: 5px;
+  font-size: 16px;
+  height: auto;
+  margin: 1rem;
+  box-shadow: 3px 4px #3b3b3b;
+  list-style: none;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.button {
+  display: inline-block;
+  position: relative;
+  background-color: #ffffff;
+  color: #1030AD;
+  border-radius: 5px;
+  height: 2rem;
+  width: max-content;
+  justify-self: center;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.74);
+  color: #ff000d;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }

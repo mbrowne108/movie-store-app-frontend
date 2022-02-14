@@ -5,8 +5,6 @@ function GenreContainer({ movies, onRentMovie, onDeleteMovie }) {
     const genres = movies.map((movie) => movie.genre.name)
     const uniqueGen = [...new Set(genres)]
 
-    console.log(genres)
-
     return (
         <div className="row">
             <br/>
@@ -15,12 +13,13 @@ function GenreContainer({ movies, onRentMovie, onDeleteMovie }) {
                     <h3>{gen}</h3>
                     <ul>
                         {movies.filter((movie) => movie.genre.name === gen)
-                            .map((movie) => <MovieCard key={movie.id} movie={movie} onRentMovie={onRentMovie} onDeleteMovie={onDeleteMovie}/>)}
+                            .map((movie) => <MovieCard key={movie.id} movie={movie} onRentMovie={onRentMovie} onDeleteMovie={onDeleteMovie}/>)
+                        }
                     </ul>
                 </div>
             )}
         </div>
-    )
+    );
 }
 
 export default GenreContainer;

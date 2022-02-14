@@ -29,6 +29,8 @@ function NewVideoForm({ onNewMovie }) {
         })
             .then(r => r.json())
             .then((newMovie) => onNewMovie(newMovie))
+            formData.title = ""
+            formData.genre_id = ""
         }
     }
 

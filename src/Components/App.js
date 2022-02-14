@@ -12,8 +12,8 @@ function App() {
 
   useEffect(() => {
     fetch('http://localhost:9292/movies')
-    .then(r => r.json())
-    .then(data => setMovies(data))
+      .then(r => r.json())
+      .then(data => setMovies(data))
   }, [])
 
   function onRentMovie(rentedMovie) {
@@ -30,13 +30,12 @@ function App() {
   function onNewMovie(newMovie) {
     const newMovieArray = [...movies, newMovie]
     setMovies(newMovieArray)
-    alert("Your new movie has been added!")
   }
 
   function onDeleteMovie(deletedMovie) {
-    const newMovieArray = [...movies]
+    const newMovieArray = movies.filter((movie) => movie.id !== deletedMovie.id)
     setMovies(newMovieArray)
-    alert("You have deleted " + deletedMovie.title)
+    alert(`You have deleted ${deletedMovie.title}`)
   }
 
   return (
@@ -47,7 +46,7 @@ function App() {
           {showForm ? "Hide Form" : "Show New Movie Form"}
         </button>
         {showForm ? <NewVideoForm onNewMovie={onNewMovie}/> : null}
-        <GenreContainer movies={movies} onRentMovie={onRentMovie} onDeleteMovie={onDeleteMovie}/>
+        {movies !== [] ? <GenreContainer movies={movies} onRentMovie={onRentMovie} onDeleteMovie={onDeleteMovie}/> : null}
         <RentedVideos movies={movies}/>
       </header>
     </div>

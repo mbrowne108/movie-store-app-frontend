@@ -9,7 +9,7 @@ function GenreContainer({ movies, onRentMovie, onDeleteMovie }) {
         <div className="row">
             <br/>
             {uniqueGen.map((gen) => 
-                <div className="column">
+                <div key={gen} className="column">
                     <h3>{gen}</h3>
                     <ul>
                         {movies.filter((movie) => movie.genre.name === gen)

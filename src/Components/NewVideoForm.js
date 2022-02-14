@@ -1,6 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function NewVideoForm({ onNewMovie }) {
+    const [genres, setGenres] = useState([])
+    
+    useEffect(() => {
+        fetch('http://localhost:9292/genres')
+          .then(r => r.json())
+          .then(data => setGenres(data))
+      }, [])
+
     const [formData, setFormData] = useState({
         title: "",
         genre_id: "",
@@ -41,12 +49,9 @@ function NewVideoForm({ onNewMovie }) {
                     <input type="text" name="title" value={formData.title} onChange={handleChange}/>
                 </label>
                 <label> Genre 
-                    <select name="genre_id" value={parseInt(formData.genre_id)} onChange={handleChange}>
+                    <select name="genre_id" value={parseInt(formData.genre_id + 1)} onChange={handleChange}>
                         <option value="">Choose One...</option>
-                        <option value="1">Action</option>
-                        <option value="2">Comedy</option>
-                        <option value="3">Drama</option>
-                        <option value="4">Sci-Fi</option>
+                        {genres.map((genre) => <option value={genre.id}>{genre.name}</option>)}
                     </select>
                 </label>
                 <input id="submit-button" type="submit" value="submit"/>

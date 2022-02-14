@@ -47,7 +47,7 @@ function App() {
         </button>
         {showForm ? <NewVideoForm onNewMovie={onNewMovie}/> : null}
         {movies !== [] ? <GenreContainer movies={movies} onRentMovie={onRentMovie} onDeleteMovie={onDeleteMovie}/> : null}
-        <RentedVideos movies={movies}/>
+        <RentedVideos movies={movies} onRentMovie={onRentMovie}/>
       </header>
     </div>
   );

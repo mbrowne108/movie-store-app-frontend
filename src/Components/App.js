@@ -48,7 +48,7 @@ function App() {
   return (
     <div className="App">
       <header id="header">
-        <h1>GENERIC VIDEO STORE</h1>
+        <h1>GENERIC VIDEO RENTAL STORE</h1>
         <button className="button" onClick={(e) => setShowForm(!showForm)}>
           {showForm ? "Hide Form" : "Show New Movie Form"}
         </button>

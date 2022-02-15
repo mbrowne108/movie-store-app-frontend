@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 function NewVideoForm({ genres, onNewMovie }) {
     const [formData, setFormData] = useState({
         title: "",
-        genre_id: "",
+        genre_id: 0,
         rented: false
     })
+
+    console.log(formData)
 
     function handleChange(e) {
         setFormData({...formData, [e.target.name]: e.target.value})
@@ -30,7 +32,7 @@ function NewVideoForm({ genres, onNewMovie }) {
             .then(r => r.json())
             .then((newMovie) => onNewMovie(newMovie))
             formData.title = ""
-            formData.genre_id = ""
+            formData.genre_id = 0
         }
     }
 
@@ -41,7 +43,7 @@ function NewVideoForm({ genres, onNewMovie }) {
                     <input type="text" name="title" value={formData.title} onChange={handleChange}/>
                 </label>
                 <label> Genre 
-                    <select name="genre_id" value={parseInt(formData.genre_id + 1)} onChange={handleChange}>
+                    <select name="genre_id" value={formData.genre_id} onChange={handleChange}>
                         <option value="">Choose One...</option>
                         {genres.map((genre) => <option key={genre.id} value={genre.id}>{genre.name}</option>)}
                     </select>

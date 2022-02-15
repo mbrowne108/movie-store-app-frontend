@@ -9,11 +9,18 @@ import RentedVideos from './RentedVideos.js'
 function App() {
   const [showForm, setShowForm] = useState(false)
   const [movies, setMovies] = useState([])
+  const [genres, setGenres] = useState([])
 
   useEffect(() => {
     fetch('http://localhost:9292/movies')
       .then(r => r.json())
       .then(data => setMovies(data))
+  }, [])
+
+  useEffect(() => {
+    fetch('http://localhost:9292/genres')
+      .then(r => r.json())
+      .then(data => setGenres(data))
   }, [])
 
   function onRentMovie(rentedMovie) {
@@ -45,8 +52,8 @@ function App() {
         <button className="button" onClick={(e) => setShowForm(!showForm)}>
           {showForm ? "Hide Form" : "Show New Movie Form"}
         </button>
-        {showForm ? <NewVideoForm onNewMovie={onNewMovie}/> : null}
-        {movies !== [] ? <GenreContainer movies={movies} onRentMovie={onRentMovie} onDeleteMovie={onDeleteMovie}/> : null}
+        {showForm ? <NewVideoForm genres={genres} onNewMovie={onNewMovie}/> : null}
+        {movies !== [] ? <GenreContainer movies={movies} genres={genres} onRentMovie={onRentMovie} onDeleteMovie={onDeleteMovie}/> : null}
         <RentedVideos movies={movies} onRentMovie={onRentMovie}/>
       </header>
     </div>

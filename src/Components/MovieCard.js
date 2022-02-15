@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GenreCard({ movie, onRentMovie, onDeleteMovie }) {
+function MovieCard({ movie, onRentMovie, onDeleteMovie }) {
     function handleRent() {
         fetch(`http://localhost:9292/movies/${movie.id}`, {
             method: "PATCH",
@@ -32,4 +32,4 @@ function GenreCard({ movie, onRentMovie, onDeleteMovie }) {
     )
 }
 
-export default GenreCard;
+export default MovieCard;

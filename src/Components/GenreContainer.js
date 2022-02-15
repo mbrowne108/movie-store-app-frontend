@@ -1,18 +1,15 @@
 import React from 'react';
 import MovieCard from './MovieCard.js'
 
-function GenreContainer({ movies, onRentMovie, onDeleteMovie }) {
-    const genres = movies.map((movie) => movie.genre.name)
-    const uniqueGen = [...new Set(genres)]
-
+function GenreContainer({ movies, genres, onRentMovie, onDeleteMovie }) {
     return (
         <div className="row">
             <br/>
-            {uniqueGen.map((gen) => 
-                <div key={gen} className="column">
-                    <h3>{gen}</h3>
+            {genres.map((genre) => 
+                <div key={genre.id} className="column">
+                    <h3>{genre.name}</h3>
                     <ul>
-                        {movies.filter((movie) => movie.genre.name === gen)
+                        {movies.filter((movie) => movie.genre_id === genre.id)
                             .map((movie) => <MovieCard key={movie.id} movie={movie} onRentMovie={onRentMovie} onDeleteMovie={onDeleteMovie}/>)
                         }
                     </ul>

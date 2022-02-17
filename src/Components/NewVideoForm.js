@@ -7,15 +7,13 @@ function NewVideoForm({ genres, onNewMovie }) {
         rented: false
     })
 
-    console.log(formData)
-
     function handleChange(e) {
         setFormData({...formData, [e.target.name]: e.target.value})
     }
 
     function formSubmit(e) {
         e.preventDefault()
-        if (formData.genre_id === "") {
+        if (formData.genre_id === 0) {
             alert("Please choose a genre for your movie.")
         } else {
         fetch(`http://localhost:9292/movies`, {
@@ -31,8 +29,11 @@ function NewVideoForm({ genres, onNewMovie }) {
         })
             .then(r => r.json())
             .then((newMovie) => onNewMovie(newMovie))
-            formData.title = ""
-            formData.genre_id = 0
+            setFormData({
+                title: "",
+                genre_id: 0,
+                rented: false
+            })
         }
     }
 

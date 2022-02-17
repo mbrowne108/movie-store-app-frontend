@@ -6,7 +6,7 @@ This is an app to display and keep track of in-stock and rented videos at a gene
 
 ## Purpose of the App
 
-This is the culmination of a Flatiron School phase teaching Ruby, Active Record, and Sinatra. It also utilizes React knowledge from previous phases (React front end sold separately)
+This is the culmination of a Flatiron School phase teaching Ruby, Active Record, and Sinatra. It also utilizes React knowledge from previous phases (React back end sold separately)
 
 ## Technologies used
 
@@ -20,7 +20,7 @@ As mentioned above, this is the culmination of my Flatiron School knowledge to d
     6. Sinatra
 
 ## Front End (React)
-To start the backend server, run : ``npm start`` The server will be hosted on [http://localhost:3000](http://localhost:9292)
+To start the backend server, run : ``npm start`` The server will be hosted on [http://localhost:3000](http://localhost:3000)
 
 The front end consists of React components fetching data from our JSON API, using fetch requests to perform CRUD actions.
 
